@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function main(config){
+				// 没有可选链(语法糖)操作之前
+				// const dbHost = config && config.db && config.db.host
+				// 有了可选链之后 ?判断前面是否存在，存在在执行后面
+				const dbHost = config?.db?.host
+				console.log(dbHost)
+			}
+			
+			main({
+				db:{
+					host:'192.168.1.100',
+					username:'root'
+				},
+				cache:{
+					host:'192.168.1.200',
+					username:'admin'
+				}
+			})
+		</script>
+	</body>
+</html>

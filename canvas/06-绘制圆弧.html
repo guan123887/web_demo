@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制圆弧</title>
+		<style>
+			#myCanvas{
+				border:1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height='600'></canvas>
+		<script type="text/javascript">
+			let myCanvas=document.querySelector('#myCanvas');
+			let ctx=myCanvas.getContext('2d');
+			ctx.beginPath();
+			// false表示顺时针方向
+			// 绘制一个 (200,200)的圆心  半径为100 的整圆  
+			ctx.arc(200,200,100,0,2*Math.PI,false);
+			ctx.stroke();
+			ctx.fillStyle='orange'
+			ctx.fill()
+		</script>
+	</body>
+</html>

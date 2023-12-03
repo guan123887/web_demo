@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 声明字符串  正向断言 (根据匹配的后面的内容判断前面是否满足)
+			let str='JS5211314,哈哈哈哈，妙极了'
+			
+			const reg=/\d+(?=,)/
+			
+			const result=reg.exec(str)
+			console.log(result);
+			
+			
+			// 反向断言(根据匹配的前面的内容判断后面是否满足)
+			const reg1=/(?=JS)\d+/
+			
+			const result1=reg1.exec(str)
+			console.log(result1);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制矩形</title>
+		<style>
+			#mycanvas{
+				border: 1px solid yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn1">绘制矩形</button>
+		<button class="btn2">绘制矩形边框</button>
+		<button class="btn3">清除矩形</button>
+		<canvas id="mycanvas" width="800" height='800'>
+			当前浏览器版本不支持,请升级浏览器
+		</canvas>
+		<script>
+			let mycanvas=document.querySelector('#mycanvas')
+			let ctx=mycanvas.getContext('2d')
+			let btn1=document.querySelector('.btn1')
+			let btn2=document.querySelector('.btn2')
+			let btn3=document.querySelector('.btn3')
+			btn1.onclick=function(){
+				ctx.fillStyle='green';
+				ctx.fillRect(100,100,100,100);
+			}
+			btn2.onclick=function(){
+				ctx.strokeStyle='red';
+				ctx.strokeRect(400,100,100,100);
+			}
+			btn3.onclick=function(){
+				ctx.clearRect(0,0,600,600)
+			}
+		</script>
+	</body>
+</html>

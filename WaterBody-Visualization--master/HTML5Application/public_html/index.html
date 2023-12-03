@@ -1,0 +1,91 @@
+<!-- 
+ web app form visualization of water levels, SOS and WPS data in Cesium 
+Author : Amir Ashkan Bagdhoust
+ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Use correct character set. -->
+        <meta charset="utf-8">
+        <!-- Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). -->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+        <title>Bever-Talspare Cesium </title>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="./ThirdParty/Cesium/Cesium.js"></script> 
+        <script src="./ThirdParty/Intersection/IntersectionAPI.js"></script>
+        <script src="./js/3dcitydb-web-map.js"></script>  
+        <script src="./js/CitydbUtil.js"></script>  
+        <script src="./js/CitydbWebworker.js"></script>
+        <script src="./js/CitydbSceneTransforms.js"></script> 
+        <script src="./js/CitydbKmlHighlightingManager.js"></script>   
+        <script src="./js/CitydbKmlTilingManager.js"></script>  
+        <script src="./js/CitydbKmlDataSource.js"></script>    
+        <script src="./js/CitydbKmlLayer.js"></script> 
+        <!--   <script src= "./js/d3.js"></script>
+        -->  <script src= "./js/geotiff.js"></script>
+        <script src= "./js/jquery.js"></script>
+        <script src= "./js/proj4.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+        <script src="http://code.highcharts.com/modules/solid-gauge.src.js"></script>
+        <script src="./js/require.js"></script> 
+        <style>
+            @import url(./ThirdParty/Cesium/Widgets/widgets.css);
+            @import url(./style.css);
+
+        </style>
+    </head>
+    <body>  
+        <div id="cesiumContainer">
+              <div id="container1"  ></div>
+
+        </div>
+        <div id="uiMenu">
+            <button type="button" class="cesium-button" id = "cesiumbuttonwps"><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;" checked >WPS Water level surface</label></button>
+            <button type="button" class="cesium-button "id = "cesiumbuttonsos"  ><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;" checked >SoS Water Tubes</label></button>
+
+            <button type="button" class="cesium-button "id = "cesiumbuttonwpswall"  ><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;"   >WPS Seepage on Dam Wall</label></button>
+            <button type="button" class="cesium-button "id = "cesiumbuttondepth"  ><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;" checked >See Underground</label></button>
+            <button type="button" class="cesium-button "id = "cesiumbuttonlegend"  ><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;" checked >Legends</label></button>
+             <button type="button" class="cesium-button "id = "cesiumbuttongauge"  ><label style="pointer-events: none;"><input type="checkbox"       style="pointer-events: none;" checked >Gauge</label></button>
+            
+            <div id="status" class ="hide" >LOADING...</div>
+        </div>
+        <div id ="legends"  >
+            <div id="legend"  >
+                <img src="./data/legendwaterlevel.png" alt="legend" ></div>
+            <div id="legend2"  >
+                <img src="./data/legendseepage.png" alt="legend" ></div>
+        </div>             
+        <div id="chart-container" >
+
+            <div id="chart">  
+
+                <div id="container"  ></div>
+                   <div id ="start-text">Select a Timeseries Or a water body cell to visualize on chart </div>
+
+            </div>
+            <div id="chart-control">
+                <div id="selection-button-dummy" >
+                    <button type="button" id="selection-button" class="cesium-button mute">Add Selected To Chart</button>
+                </div>
+                <button type="button" id="series-remove-button" class="cesium-button">Remove series</button>
+                <button type="button" id="series-add-button" class="cesium-button">Add series</button>
+                <select id ="select-list" class="cesium-button"><option value="undefined">Select TimeSeries</option>  </select>
+
+            </div>
+        </div>
+        <!--        <script src= "./script.js"></script>-->
+        <script src= "./initialModels.js"></script>
+        <script src= "./czmlModels.js"></script>
+        <script src= "./charts.js"></script>
+        <script src= "./dynamicUpdates.js"></script>
+    </body>
+</html>

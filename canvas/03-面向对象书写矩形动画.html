@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			let mycanvas=document.querySelector('#mycanvas')
+			let ctx=mycanvas.getContext('2d')
+			function Rect(x,y,w,h,color){
+				this.x=x;
+				this.y=y;
+				this.w=w;
+				this.h=h;
+				this.color=color;
+			}
+			// 更新的方法
+			Rect.prototype.update=function(){
+				this.x<=mycanvas.width?this.x++:this.x=100;
+			}
+			// 渲染
+			Rect.prototype.render=function(){
+				// 设置颜色
+				ctx.fillStyle=this.color;
+				ctx.fillRect(this.x,this.y,this.w,this.h);
+			}
+			let r=new Rect(100,100,50,50,'purple');
+			// 动画过程
+			setInterval(function(){
+				ctx.clearRect(0,0,mycanvas.width,mycanvas.height)
+				// 更新
+				r.update();
+				r.render();
+			},10)
+			
+
+		</script>
+	</body>
+</html>

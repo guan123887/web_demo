@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <canvas width='800' height='600' id='mycanvas'>该浏览器不支持</canvas>
+    </div>
+    <script>
+        let canvas=document.getElementById('mycanvas');
+        let ctx=canvas.getContext('2d');
+        // 先绘制颜色
+        ctx.fillStyle='green'
+        // 绘制矩形  绘制一个 中心点 100，100  宽200 高50 的矩形
+        ctx.fillRect(100,100,200,50);  
+        console.log(ctx);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// ES6  只有数组才有  rest参数  和spread扩展运算符
+			// ES9添加了对象扩展运算符
+			// function connect({host,port,username,password}){
+			// 	console.log(host,port,username,password);
+			// }
+			
+			
+			// rest参数
+			function connect({host,port,...user}){
+				console.log(host,port,user);
+			}
+			connect({	
+				host:'127.0.0.1',
+				port:3306,
+				username:'root',
+				password:'root',
+				type:'master'
+			})
+			
+			// spread运算符
+			const skillone={
+				q:'天音波',
+				
+				
+			}
+			
+			const skiiltwo={
+				w:'金钟罩',
+			}
+			
+			const skillthree={
+				e:'天雷破'
+			}
+			
+			const skillfour={
+				r:'猛龙摆尾'
+			}
+			
+			const skill={...skillone,...skiiltwo,...skillthree,...skillfour}
+			console.log(skill);
+		</script>
+	</body>
+</html>

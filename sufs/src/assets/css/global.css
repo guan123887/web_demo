@@ -1,0 +1,16 @@
+html,
+body,
+.app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* 解决drawer 出现闪屏问题 */
+    padding-right: 0 !important
+}
+
+/* 去除cesium logo */
+.cesium-widget-credits {
+    display: none !important;
+    visibility: hidden !important;
+}

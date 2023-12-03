@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// dot . 元字符  除换行符以外的人任意单个字符
+			// 但是加上/ /s  正则表达式之后有了s后，.可以匹配任意字符
+			let str=`
+				<ul>
+					<li>
+						<a>肖申克的救赎</a>
+						<p>上映日期:1994-09-10</p>
+					</li>
+					<li>
+						<a>阿甘正传</a>
+						<p>上映日期:1994-07-06</p>
+					</li>
+				</ul>
+			`
+			// \s匹配空白符  ,+匹配之前的字符一次或多次 .*为贪婪通配符(尽可能多的匹配)  加上?是使得只能匹配0次或1次
+			const reg=/<li>\s+<a>(?<text0>.*?)<\/a>\s+<p>(?<text1>.*?)<\/p>/
+			const result=reg.exec(str)
+			console.log(result);
+			console.log(result.groups.text0);
+			console.log(result.groups.text1);
+			
+			// donet实现上述功能
+			const reg1=/<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
+			let result1;
+			let data=[]
+			while(result1=reg1.exec(str)){
+				console.log(result);
+				data.push({title:result[1],time:result[2]})
+			}
+			console.log(data);
+		</script>
+	</body>
+</html>

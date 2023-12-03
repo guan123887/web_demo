@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>、
+	<script>
+		// 1.声明对象
+		const school={
+			name:'迪特',
+			cities:['北京','上海','深圳'],
+			xueke:['前端','java','大数据','运维']
+		}
+		
+		// 获取对象所有的键
+		console.log(Object.keys(school));
+		
+		// 获取对象所有的值
+		console.log(Object.values(school));
+		
+		// 获取键值对
+		console.log(Object.entries(school));
+		
+		// 创建Map
+		const m=new Map(Object.entries(school))
+		console.log(m.get('cities'),typeof m)
+		
+		// 对象属性的描述对象
+		// console.log(Object.getOwnPropertyDescriptors(school));
+		// Object.create(原型对象,描述对象)
+		const obj=Object.create(null,{
+			name:{
+				// 设置值
+				value:'策马奔腾',
+				// 属性特性
+				writable:true,
+				configurable:true,
+				enumerable:true,
+			}
+		})
+		console.log(obj);
+	</script>
+	</body>
+</html>

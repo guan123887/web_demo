@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制路径</title>
+		<style>
+			#mycanvas{
+				border: 1px solid yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="800" height='800'>
+			当前浏览器版本不支持,请升级浏览器
+		</canvas>
+		<script>
+			let mycanvas=document.querySelector('#mycanvas')
+			let ctx=mycanvas.getContext('2d')
+			
+			// 开始绘制路径
+			ctx.beginPath();
+			// 移动绘制点
+			ctx.moveTo(100,100);
+			// 描述行进路径
+			ctx.lineTo(200,200);
+			ctx.lineTo(400,180);
+			ctx.lineTo(380,50);
+			// 封闭路径
+			ctx.closePath();
+			// 绘制这个不规则的图形
+			ctx.strokeStyle='darkmagenta';
+			ctx.stroke();
+			// 给图形填充颜色
+			ctx.fillStyle='skyblue';
+			ctx.fill()
+		</script>
+	</body>
+</html>

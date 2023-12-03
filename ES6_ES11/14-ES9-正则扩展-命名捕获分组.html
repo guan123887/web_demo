@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 声明一个字符串
+			let str = "<a href='https://www.baidu.com'>百度</a>"
+
+			// // 提取url与 [标签文本]
+
+			// const reg = /<a href='(.*)'>(.*)<\/a>/;
+
+
+			// // 执行
+			// const result = reg.exec(str);
+			// console.log(result);
+			// console.log(result[1]);
+			// console.log(result[2]);
+			
+			// 命名捕获分组方法
+			const reg = /<a href='(?<url>.*)'>(?<text>.*)<\/a>/;
+			
+			
+			// 执行
+			const result = reg.exec(str);
+			console.log(result.groups.url);
+			console.log(result.groups.text);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制圆弧</title>
+		<style>
+			#myCanvas{
+				border:1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height='600'></canvas>
+		<script type="text/javascript">
+			let myCanvas=document.querySelector('#myCanvas');
+			let ctx=myCanvas.getContext('2d');
+			function Ball(x,y,dx,dy){
+				this.x=x;
+				this.y=y;
+				this.dx=dx;
+				this.dy=dy;
+			}
+			
+			// 渲染小球
+			function render(){
+				ctx.beginPath();
+				ctx.arc(this.x,this.y,0,2*Math.PI,false);
+				ctx.fillStyle='orange'
+				ctx.fill()
+			}
+			
+			myCanvas.addEventListener('mousemove',fucntion(e){
+				new Ball(e.offsetX,e.offsetY);
+			})
+			
+			// 利用定时器进行动画渲染和更新
+			setInterval(function(){
+				
+			},30)
+			// 设置随机颜色
+			function getRandom(){
+				let allType='0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f';
+				let allTypeArr=allType.split(',');
+				let color='#'
+				for(let i=0;i<6;i++){
+					let random=parseInt(Math.random()*allTypeArr.length);
+					color+=allTypeArr[random];
+				}
+				return color;
+			}
+		</script>
+	</body>
+</html>

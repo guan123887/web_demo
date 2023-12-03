@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 大整型
+        let n = 521n;
+        console.log(n,typeof(n));   //521n "bigint"
+
+        // 函数 
+        let m = 123;
+        // 强制转换  整数之间互相转换
+        console.log(BigInt(m),typeof(BigInt(m)));  //123n "bigint"
+        // console.log(BigInt(1.2));   //浮点型转换会报错
+
+        // BigInt用于大数值运算
+        let max=Number.MAX_SAFE_INTEGER;
+        console.log(max);   //9007199254740991
+        console.log(max+1); //9007199254740992
+        console.log(max+2); //9007199254740992
+
+
+        // 上述问题最大只能为 9007199254740992 ，如果想要得到正确结果,需要使用BigInt()
+        console.log(BigInt(max)+BigInt(11111)); //9007199254752102n 得到了正确结构
+    </script>
+</body>
+</html>

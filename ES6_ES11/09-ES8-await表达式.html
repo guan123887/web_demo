@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.await必须写在async函数中（async函数可以没有await）
+        // 2.await右侧表达式一般为Promise对象
+        // 3.await返回的是Promise成功的值
+        // 4.await的Promise失败了,就会抛出异常,需要通过try...catch捕获处理
+
+        // 创建Promise对象
+        const p=new Promise((resolve,reject)=>{
+            // resolve('成功的值!');
+            reject('失败了')
+        })
+
+        // await要放在async函数中
+        async function fn(){
+            // 成功时
+            // let result=await p;
+            // console.log(result);
+
+            // 成功失败一起使用时
+            try {
+                let result=await p;
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fn()
+    </script>
+</body>
+</html>
